@@ -15,7 +15,9 @@ const
 // Conditions for winning the game are below, but minified and
 // obfuscated. Otherwise anyone can cheat by looking at the source
 // code for answers.
-const condition = _0x155eb4 => !(0xb4!==_0x155eb4[0x2]||0xb4!==_0x155eb4[0x3]||0x0!==_0x155eb4[0x6]&&0xb4!==_0x155eb4[0x6]||0x5a!==_0x155eb4[0x7]||0x0!==_0x155eb4[0x8]&&0xb4!==_0x155eb4[0x8]||0x5a!==_0x155eb4[0x9]||0xb4!==_0x155eb4[0xa]||0xb4!==_0x155eb4[0xb]);
+const condition = _0x155eb4 => {
+	return !(0xb4!==_0x155eb4[0x2]||0xb4!==_0x155eb4[0x3]||0x0!==_0x155eb4[0x6]&&0xb4!==_0x155eb4[0x6]||0x5a!==_0x155eb4[0x7]||0x0!==_0x155eb4[0x8]&&0xb4!==_0x155eb4[0x8]||0x5a!==_0x155eb4[0x9]||0xb4!==_0x155eb4[0xa]||0xb4!==_0x155eb4[0xb]);
+};
 
 // Define an array that holds the pipe's rotation.
 const rotation = [];
@@ -67,14 +69,16 @@ const fillTheBucket = () => {
 	 else { window.alert('Game over.\nYou lost...'); }
 }
 
-const rotate = id => {
-	let deg = rotation[id];
+const rotate = index => {
+	let deg = rotation[index];
 
 	// Define a factor by which to rotate.
 	let factor = deg > 180 ? 0 : deg + 90;
 
 	// Add an appropriate class and reassign the rotation array item
 	// with the factor.
-	p[id].classList.add(`r${factor}`);
-	rotation[id] = factor;
+	let element = qa('svg')[index - 1];
+	element.classList.remove(...element.classList);
+	element.classList.add(`r${factor}`);
+	rotation[index] = factor;
 }
