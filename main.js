@@ -27,46 +27,57 @@ for (var i = 12; i >= 0; i--) rotation.push(0);
 
 const p = qa('svg');
 
+let filled = false;
+
 const fillTheBucket = () => {
 
-	// Define some elements.
-	const
-		pipe = qa('.filled'),
-		revpipe = qa('.revfilled'),
-		water = q('#water');
+	if (!filled) {
+		filled = true;
 
-	// Validate the pipe configuration.
-	if (condition(rotation)) {
-		window.alert('Game over.\nYou won!');
+		// Define some elements.
+		const
+			pipe = qa('.filled'),
+			revpipe = qa('.revfilled'),
+			water = q('#water');
 
-		// Fill the bucket after 25 seconds...
-		setTimeout(() => {
-			q('#bucket').style.backgroundColor = '#87ceebff';
-		}, 25000);
+		// Validate the pipe configuration.
+		if (condition(rotation)) {
+			window.alert('Game over.\nYou won!');
 
-		const pipes = qa('path');
+			// Fill the bucket after 25 seconds...
+			setTimeout(() => {
+				q('#bucket').style.backgroundColor = '#87ceebff';
+			}, 25000);
 
-		// Pipes...
-		[
-			pipes[0], pipes[2], pipes[4], pipes[6], pipes[8], pipes[10], pipes[13], pipes[15], pipes[18], pipes[20], pipes[22], pipes[24]
-		].forEach(pipe => { pipe.classList.add('path'); });
+			const pipes = qa('path');
 
-		pipe[0].classList.add('fill-animation-1');
-		pipe[1].classList.add('fill-animation-2');
-		pipe[3].classList.add('fill-animation-6');
-		pipe[5].classList.add('fill-animation-4');
-		pipe[6].classList.add('fill-animation-7');
-		pipe[7].classList.add('fill-animation-8');
+			// Pipes...
+			[
+				pipes[0], pipes[2], pipes[4], pipes[6], pipes[8], pipes[10], pipes[13], pipes[15], pipes[18], pipes[20], pipes[22], pipes[24]
+			].forEach(pipe => {
+				pipe.classList.remove('pipe');
+				pipe.classList.add('path');
+			});
 
-		if (rotation[6] === 0) pipe[2].classList.add('fill-animation-3');
-		else revpipe[0].classList.add('fill-animation-3');
+			pipe[0].classList.add('fill-animation-1');
+			pipe[1].classList.add('fill-animation-2');
+			pipe[3].classList.add('fill-animation-6');
+			pipe[5].classList.add('fill-animation-4');
+			pipe[6].classList.add('fill-animation-7');
+			pipe[7].classList.add('fill-animation-8');
 
-		if (rotation[8] === 0) pipe[4].classList.add('fill-animation-5');
-		else revpipe[1].classList.add('fill-animation-5');
+			if (rotation[6] === 0) pipe[2].classList.add('fill-animation-3');
+			else revpipe[0].classList.add('fill-animation-3');
 
-		water.classList.add('animateWater');
-	 }
-	 else { window.alert('Game over.\nYou lost...'); }
+			if (rotation[8] === 0) pipe[4].classList.add('fill-animation-5');
+			else revpipe[1].classList.add('fill-animation-5');
+
+			qa('svg').forEach(element => { element.removeAttribute('onclick'); });
+
+			water.classList.add('animateWater');
+		}
+		else { window.alert('Game over.\nYou lost...'); }
+	}
 }
 
 const rotate = index => {
