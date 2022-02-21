@@ -1,0 +1,193 @@
+/*
+ * Created by SwapniL.
+ * Style sheet for Fill The Bucket 2 (Optimised).
+ *
+ * Revised by msfninja.
+*/
+
+// Properties are listed alphabetically. This makes maintaining such
+// code much easier.
+
+html {
+	body {
+		* {
+			box-sizing: border-box;
+			margin: 0;
+			padding: 0;
+		}
+
+		#base {
+			height: 300px;
+			left: calc(50% - 90px);
+			position: absolute;
+			top: calc(50% - 200px);
+			visibility: hidden;
+			width: 180px;
+		}
+
+		svg {
+			background-color: #808080ff;
+			font-size: 0;
+			float: left;
+			transition: all 500ms cubic-bezier(0.25, 0.1, 0.25, 1) 0ms;
+			vertical-align: top;
+		}
+
+		path {
+			stroke-dasharray: 100;
+			stroke-dashoffset: 1000;
+			stroke-linejoin: round;
+			stroke-width: 10px;
+		}
+
+		.pipe {
+			animation: flow 5000ms cubic-bezier(1, 1, 0, 0) 0ms infinite normal none running;
+		}
+
+		.path {
+			stroke-dasharray: 100;
+			stroke-dashoffset: 1000;
+			stroke-linejoin: round;
+			stroke-width: 10px;
+		}
+
+		.animate {
+			animation: flow 5000ms cubic-bezier(1, 1, 0, 0) 0ms infinite normal none running;
+			stroke-dasharray: 100;
+			stroke-dashoffset: 1000;
+			stroke-linejoin: round;
+			stroke-width: 10px;
+		}
+
+		@for $i from 0 through 3 {
+			$j: $i * 90;
+
+			.r#{$j} {
+				transform: rotate(#{$j}deg);
+			}
+		}
+
+		#tap{
+			background-color: #a52a2aff;
+			height: 15px;
+			left: calc(50% - 5px);
+			position: relative;
+			width: 10px;
+		}
+
+		#tap::before {
+			background-color: #a52a2aff;
+			content: '';
+			display: block;
+			height: 5px;
+			left: -5px;
+			position: relative;
+			width: 20px;
+		}
+
+		#bucket {
+			border: 0 solid #a52a2aff;
+			border-width: 0 2px 2px 2px;
+			border-radius: 0 10px 10px 0;
+			height: 30px;
+			left: calc(50% - 20px);
+			position: relative;
+			top: 240px;
+			width: 40px;
+		}
+
+		#water {
+			background-color: #87ceebff;
+			border-radius: 0 10px 10px 0;
+			height: 0;
+			position: relative;
+			top: calc(100% - 1px);
+			width: 100%;
+		}
+
+		.animateWater {
+			animation: fill-bucket 10000ms cubic-bezier(1, 1, 0, 0) 16000ms 1 normal forwards running;
+		}
+
+		@keyframes fill-bucket {
+			from {
+				height: 0;
+				top: calc(100% - 1px);
+			}
+
+			to {
+				height: 30px;
+				top: 0;
+			}
+		}
+
+		#fillBtn {
+			height: fit-content;
+			left: calc(50% - 40px);
+			position: absolute;
+			top: 300px;
+			width: 80px;
+		}
+
+		button {
+			padding: auto 5px;
+		}
+
+		@keyframes flow {
+			from {
+				stroke-dashoffset: 200;
+			}
+
+			to {
+				stroke-dashoffset: 0;
+			}
+		}
+
+		@keyframes fill {
+			from {
+				stroke-dashoffset: 300;
+			}
+
+			to {
+				stroke-dashoffset: 0;
+			}
+		}
+
+		.filled {
+			stroke-dasharray: 600;
+			stroke-dashoffset: 600;
+			stroke-linejoin: round;
+			stroke-width: 10px;
+		}
+
+		.revfilled {
+			stroke-dasharray: 600;
+			stroke-dashoffset: 600;
+			stroke-linejoin: round;
+			stroke-width: 10px;
+		}
+
+		@for $i from 0 through 7 {
+			$j: $i * 2000;
+
+			.fill-animation-#{$i + 1} {
+				stroke-dasharray: 300;
+				stroke-dashoffset: 300;
+				stroke-linejoin: round;
+				stroke-width: 10px;
+				animation: fill 10000ms cubic-bezier(1, 1, 0, 0) #{$j}ms;
+			}
+		}
+
+		a {
+			background-color: #00ffffff;
+			border-radius: 20px;
+			display: inline-block;
+			padding: 12px;
+			position: relative;
+			text-decoration: none;
+			top: 20vh;
+			width : fit-content;
+		}
+	}
+}

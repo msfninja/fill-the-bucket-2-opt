@@ -1,0 +1,101 @@
+<!-- 
+	Created by SwapniL.
+	Markup for Fill The Bucket 2 (Optimised).
+
+	Revised by msfninja.
+-->
+
+<!DOCTYPE html>
+<html dir="ltr">
+	<head>
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge"/ >
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"/ >
+		<link rel="stylesheet" type="text/css" href="https://github.com/msfninja/fill-the-bucket-2-opt/main/blob/style.min.css" />
+		<style type="text/css">
+			img {
+				height: 100px;
+				left: calc(50% - 50px);
+				position: absolute;
+				top: calc(50% - 50px);
+				width: 100px;
+			}
+		</style>
+		<script type="text/javascript">
+			document.addEventListener('DOMContentLoaded', event => {
+				document.querySelector('#base').style.visibility = 'hidden';
+			});
+			window.onload = event => {
+				document.querySelector('#loader').style.visibility = 'hidden';
+				document.querySelector('#base').style.visibility = 'visible';
+				window.alert('1. Tap on the water pipes to rotate them.\n2. After setting up the pipes correctly, click the Fill button.');
+			}
+		</script>
+		<title>Fill The Bucket 2 (Optimised)</title>
+	</head>
+	<body>
+		<img id="loader" src="https://icons8.com/preloaders/preloaders/285/Moving%20blocks.gif" />
+		<div id="base">
+			<div id="tap"></div>
+			<svg width="60" height="60" xmlns="http://www.w3.org/2000/svg" onclick="rotate(1);">
+				<path class="pipe" d="M 0 30 h 30 v -30" stroke="white" fill="none" />
+				<path d="" stroke="skyblue" fill="none" />
+			</svg>
+			<svg width="60" height="60" xmlns="http://www.w3.org/2000/svg" onclick="rotate(2);">
+				<path class="pipe" d="M 0 30 h 30 v 30" stroke="white" fill="none" />
+				<path class="filled" d="M 30 60 v -30 h -30" stroke="skyblue" fill="none" />
+			</svg>
+			<svg width="60" height="60" xmlns="http://www.w3.org/2000/svg" onclick="rotate(3);">
+				<path class="pipe" d="M 30 0 v 30 h 30" stroke="white" fill="none" />
+				<path class="filled" d="M 60 30 h -30 v -30" stroke="skyblue" fill="none" />
+			</svg>
+			<svg width="60" height="60" xmlns="http://www.w3.org/2000/svg" onclick="rotate(4);">
+				<path class="pipe" d="M 30 0 v 30 h 30" stroke="white" fill="none" />
+				<path d="" stroke="skyblue" fill="none" />
+			</svg>
+			<svg width="60" height="60" xmlns="http://www.w3.org/2000/svg" onclick="rotate(5);">
+				<path class="pipe" d="M 60 30 h -30 v -30" stroke="white" fill="none" />
+				<path d="" stroke="skyblue" fill="none" />
+			</svg>
+			<svg width="60" height="60" xmlns="http://www.w3.org/2000/svg" onclick="rotate(6);">
+				<path class="pipe" d="M 30 0 v 60" stroke="white" fill="none" />
+				<path class="filled" d="M 30 0 v 60" stroke="skyblue" fill="none" />
+				<path class="revfilled" d="M 30 60 v -60" stroke="skyblue" fill="none" />
+			</svg>
+			<svg width="60" height="60" xmlns="http://www.w3.org/2000/svg" onclick="rotate(7);">
+				<path class="pipe" d="M 30 0 v 30 h 30" stroke="white" fill="none" />
+				<path class="filled" d="M 30 0 v 30 h 30" stroke="skyblue" fill="none" />
+			</svg>
+			<svg width="60" height="60" xmlns="http://www.w3.org/2000/svg" onclick="rotate(8);">
+				<path class="pipe" d="M 0 30 h 60" stroke="white" fill="none" />
+				<path class="filled" d="M 60 30 h -60" stroke="skyblue" fill="none" />
+				<path class="revfilled" d="M 0 30 h 60" stroke="skyblue" fill="none" />
+			</svg>
+			<svg width="60" height="60" xmlns="http://www.w3.org/2000/svg" onclick="rotate(9);">
+				<path class="pipe" d="M 0 30 h 30 v 30" stroke="white" fill="none" />
+				<path class="filled" d="M 0 30 h 30 v 30" stroke="skyblue" fill="none" />
+			</svg>
+			<svg width="60" height="60" xmlns="http://www.w3.org/2000/svg" onclick="rotate(10);">
+				<path class="pipe" d="M 0 30 h 30 v 30" stroke="white" fill="none" />
+				<path class="filled" d="M 30 60 v -30 h -30" stroke="skyblue" fill="none" />
+			</svg>
+			<svg width="60" height="60" xmlns="http://www.w3.org/2000/svg" onclick="rotate(11);">
+				<path class="pipe" d="M 30 0 v 30 h 30" stroke="white" fill="none" />
+				<path class="filled" d="M 60 30 h -30 v -30" stroke="skyblue" fill="none" />
+			</svg>
+			<svg width="60" height="60" xmlns="http://www.w3.org/2000/svg" onclick="rotate(12);">
+				<path class="pipe" d="M 60 30 h -30 v 30" stroke="white" fill="none" />
+				<path d="" stroke="skyblue" fill="none" />
+			</svg>
+			<div id="bucket">
+				<div id="water"></div>
+			</div>
+			<button id="fillBtn" style="cursor: pointer;" onclick="fillTheBucket()p">Fill</button>
+			<p align="center">
+				<a href="https://www.youtube.com/SwapnilsLab" target="_blank">My YouTube Channel</a>
+			</p>
+			</div>
+		</div>
+		<script defer="defer" src="https://github.com/msfninja/fill-the-bucket-2-opt/main/blob/main.min.js" type="text/javascript"></script>
+	</body>
+</html>
